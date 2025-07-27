@@ -1,8 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Sufala - Fresh Cold Pressed Oils</title>
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+ 
+ <style>
+ * {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ }
 
+ .iframe{
+    text-align: center;
+ }
+
+ :root {
+ --primary-green: #2D5016;
+ --accent-gold: #D4AF37;
+ --warm-cream: #F5F2E8;
+ --deep-brown: #3E2723;
+ --soft-green: #A8CC8C;
+ --text-dark: #2C3E50;
+ --shadow: 0 10px 30px rgba(0,0,0,0.1);
+ --gradient: linear-gradient(135deg, #2D5016 0%, #A8CC8C 100%);
+ }
+
+ body {
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ line-height: 1.6;
+ color: var(--text-dark);
+ background: var(--warm-cream);
+ overflow-x: hidden;
+ }
+
+ /* Navigation */
+ .navbar {
+ position: fixed;
+ top: 0;
+ width: 100%;
+ background: rgba(245, 242, 232, 0.95);
+ backdrop-filter: blur(10px);
+ border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+ z-index: 1000;
+ transition: all 0.3s ease;
+ }
+
+ .nav-container {
+ max-width: 1200px;
+ margin: 0 auto;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 1rem 2rem;
+ }
+
+ .logo {
+ font-size: 2rem;
+ font-weight: bold;
+ color: var(--primary-green);
+ text-decoration: none;
+ }
+
+ .nav-links {
+ display: flex;
+ list-style: none;
+ gap: 2rem;
+ }
+
+ .nav-links a {
+ text-decoration: none;
+ color: var(--text-dark);
+ font-weight: 500;
+ transition: color 0.3s ease;
+ position: relative;
+ }
+
+ .nav-links a:hover {
+ color: var(--accent-gold);
+ }
+
+ .nav-links a::after {
+ content: '';
+ position: absolute;
+ bottom: -5px;
+ left: 0;
+ width: 0;
+ height: 2px;
+ background: var(--accent-gold);
+ transition: width 0.3s ease;
+ }
+
+ .nav-links a:hover::after {
+ width: 100%;
+ }
+
+ .cart-btn {
+ background: var(--gradient);
+ color: white;
+ border: none;
+ padding: 0.75rem 1.5rem;
+ border-radius: 25px;
+ cursor: pointer;
+ font-size: 1rem;
+ transition: transform 0.3s ease;
+ }
+
+ .cart-btn:hover {
+ transform: translateY(-2px);
+ }
+
+ .menu-toggle {
+ display: none;
+ flex-direction: column;
+ cursor: pointer;
+ }
+
+ .menu-toggle span {
+ width: 25px;
+ height: 3px;
+ background: var(--primary-green);
+ margin: 3px 0;
+ transition: 0.3s;
+ }
+
+ /* Hero Section */
+ .display-desktop{
+   display: block;
+ }
+ .display-mobile{
+   display: none;
+ }
+
+@media screen and (max-width: 768px) {
+    .display-desktop{
+   display: none;
+ }
+ .display-mobile{
+   display: block;
+ }
+}
+
+ .hero {
+ min-height: 100vh;
+ background: linear-gradient(135deg, rgba(245, 242, 232, 0.9) 0%, rgba(168, 204, 140, 0.1) 100%);
+ display: flex;
+ align-items: center;
+ padding: 6rem 2rem 2rem;
+ position: relative;
+ overflow: hidden;
+ }
+
+ .hero::before {
+ content: '';
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="%23D4AF37" opacity="0.1"/><circle cx="80" cy="80" r="1" fill="%232D5016" opacity="0.1"/><circle cx="40" cy="60" r="1" fill="%23A8CC8C" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+ z-index: -1;
+ }
+
+ .hero-container {
+ max-width: 1200px;
+ margin: 0 auto;
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 4rem;
+ align-items: center;
+ }
+
+ .hero-content h1 {
+ font-size: 3.5rem;
+ font-weight: 700;
+ color: var(--primary-green);
+ margin-bottom: 1.5rem;
+ line-height: 1.2;
+ }
+
+ .hero-content .highlight {
+ background: linear-gradient(135deg, var(--accent-gold), #FFD700);
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ background-clip: text;
+ }
+
+ .hero-content p {
+ font-size: 1.25rem;
+ color: var(--text-dark);
+ margin-bottom: 2rem;
+ line-height: 1.8;
+ }
+
+ .hero-stats {
+ display: flex;
+ gap: 2rem;
+ margin-bottom: 2rem;
+ }
+
+ .stat {
+ text-align: center;
+ }
+
+ .stat-number {
+ font-size: 2rem;
+ font-weight: bold;
+ color: var(--accent-gold);
+ display: block;
+ }
+
+ .stat-label {
+ font-size: 0.9rem;
+ color: var(--text-dark);
+ opacity: 0.8;
+ }
+
+ .cta-button {
+ background: var(--gradient);
+ color: white;
+ border: none;
+ padding: 1rem 2.5rem;
+ font-size: 1.1rem;
+ border-radius: 50px;
+ cursor: pointer;
+ transition: all 0.3s ease;
+ text-decoration: none;
+ display: inline-block;
+ box-shadow: var(--shadow);
+ }
+
+ .cta-button:hover {
+ transform: translateY(-3px);
+ box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+ }
+
+ .hero-image {
+ position: relative;
+ text-align: center;
+ }
+
+ .hero-image::before {
+ content: '';
+ position: absolute;
+ top: -20px;
+ left: -20px;
+ right: -20px;
+ bottom: -20px;
+ background: linear-gradient(45deg, var(--accent-gold), var(--soft-green));
+ border-radius: 50%;
+ opacity: 0.1;
+ z-index: -1;
+ }
+
+ @keyframes float {
+ 0%, 100% { transform: translateY(0px); }
+ 50% { transform: translateY(-10px); }
+ }
+
+ /* Products Section */
+ .products {
+ padding: 6rem 2rem;
+ background: white;
+ }
+
+ .section-container {
+ max-width: 1200px;
+ margin: 0 auto;
+ }
+
+ .section-header {
+ text-align: center;
+ margin-bottom: 4rem;
+ }
+
+ .section-header h2 {
+ font-size: 2.5rem;
+ color: var(--primary-green);
+ margin-bottom: 1rem;
+ }
+
+ .section-header p {
+ font-size: 1.1rem;
+ color: var(--text-dark);
+ opacity: 0.8;
+ max-width: 600px;
+ margin: 0 auto;
+ }
+
+ .products-container {
+ display: flex;
+ justify-content: center;
+ gap: 3rem;
+ margin-top: 3rem;
+ flex-wrap: wrap;
+ }
+
+ .product-card {
+ flex: 0 1 auto;
+ min-width: 250px;
+ max-width: 320px;
+ background: transparent;
+ border-radius: 0;
+ padding: 1rem;
+ text-align: center;
+ box-shadow: none;
+ transition: all 0.4s ease;
+ cursor: pointer;
+ border: none;
+ position: relative;
+ overflow: visible;
+ }
+
+ .product-card::before {
+ display: none;
+ }
+
+ .product-card:hover {
+ transform: translateY(-10px);
+ border: none;
+ box-shadow: none;
+ }
+
+ .product-image {
+ width: 120px;
+ height: 120px;
+ border-radius: 50%;
+ margin: 0 auto 1.5rem;
+ overflow: hidden;
+ transition: all 0.4s ease;
+ position: relative;
+ }
+
+ .product-card:hover .product-image {
+ transform: rotate(360deg);
+ box-shadow: 0 10px 30px rgba(45, 80, 22, 0.3);
+ }
+
+ .product-image img {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ transition: transform 0.4s ease;
+ }
+
+ .product-card:hover .product-image img {
+ transform: scale(1.1);
+ }
+
+ .product-card h3 {
+ font-size: 1.5rem;
+ color: var(--primary-green);
+ margin-bottom: 0.5rem;
+ transition: color 0.3s ease;
+ }
+
+ .product-card:hover h3 {
+ color: var(--accent-gold);
+ }
+
+ .product-card .price {
+ font-size: 1.25rem;
+ color: var(--accent-gold);
+ font-weight: bold;
+ margin-bottom: 1rem;
+ }
+
+ .product-card .description {
+ color: var(--text-dark);
+ opacity: 0.8;
+ font-size: 0.9rem;
+ margin-bottom: 1.5rem;
+ line-height: 1.6;
+ }
+
+ .select-btn {
+ background: transparent;
+ color: var(--primary-green);
+ border: 2px solid var(--primary-green);
+ padding: 0.75rem 1.5rem;
+ border-radius: 25px;
+ cursor: pointer;
+ transition: all 0.3s ease;
+ font-weight: 500;
+ }
+
+ .select-btn:hover {
+ background: var(--primary-green);
+ color: white;
+ transform: translateY(-2px);
+ }
+
+ .product-card.selected {
+ border: none;
+ background: transparent;
+ }
+
+ .product-card.selected .select-btn {
+ background: var(--accent-gold);
+ color: white;
+ border-color: var(--accent-gold);
+ }
+
+ /* About Section Cards */
+ .about-card {
+ background: white;
+ border-radius: 20px;
+ padding: 2rem;
+ text-align: center;
+ box-shadow: var(--shadow);
+ transition: all 0.4s ease;
+ cursor: pointer;
+ border: 2px solid transparent;
+ position: relative;
+ overflow: hidden;
+ max-width: 320px;
+ }
+
+ .about-card::before {
+ content: '';
+ position: absolute;
+ top: 0;
+ left: -100%;
+ width: 100%;
+ height: 100%;
+ background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+ transition: left 0.6s ease;
+ }
+
+ .about-card:hover::before {
+ left: 100%;
+ }
+
+ .about-card:hover {
+ transform: translateY(-15px) scale(1.05);
+ border-color: var(--accent-gold);
+ box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+ }
+
+ .about-icon {
+ width: 80px;
+ height: 80px;
+ background: var(--gradient);
+ border-radius: 50%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ margin: 0 auto 1.5rem;
+ font-size: 2rem;
+ color: white;
+ }
+
+ .about-card h3 {
+ font-size: 1.5rem;
+ color: var(--primary-green);
+ margin-bottom: 0.5rem;
+ transition: color 0.3s ease;
+ }
+
+ .about-card:hover h3 {
+ color: var(--accent-gold);
+ }
+
+ .about-card .description {
+ color: var(--text-dark);
+ opacity: 0.8;
+ font-size: 0.9rem;
+ margin-bottom: 1.5rem;
+ line-height: 1.6;
+ }
+
+ /* Calendar Section */
+ .calendar-section {
+ padding: 6rem 2rem;
+ background: var(--warm-cream);
+ display: none;
+ }
+
+ .calendar-container {
+ max-width: 800px;
+ margin: 0 auto;
+ background: white;
+ border-radius: 20px;
+ padding: 3rem;
+ box-shadow: var(--shadow);
+ overflow-x: auto;
+ }
+
+ .calendar {
+ background: transparent;
+ min-width: 350px;
+ }
+
+ .calendar-header {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin-bottom: 2rem;
+ padding: 1rem;
+ background: var(--gradient);
+ border-radius: 15px;
+ color: white;
+ }
+
+ .month-picker {
+ font-size: 1.5rem;
+ font-weight: bold;
+ cursor: pointer;
+ padding: 0.5rem 1rem;
+ border-radius: 10px;
+ transition: background 0.3s ease;
+ display: flex;
+ align-items: center;
+ gap: 1rem;
+ }
+
+ .month-picker:hover {
+ background: rgba(255, 255, 255, 0.1);
+ }
+
+ .month-change {
+ width: 40px;
+ height: 40px;
+ border-radius: 50%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ cursor: pointer;
+ transition: background 0.3s ease;
+ font-size: 1.2rem;
+ }
+
+ .month-change:hover {
+ background: rgba(255, 255, 255, 0.1);
+ }
+
+ .year-picker {
+ display: flex;
+ align-items: center;
+ gap: 1rem;
+ }
+
+ /* Year Dropdown Styles */
+ .year-dropdown {
+ position: relative;
+ }
+
+ .year-select {
+ background: rgba(255, 255, 255, 0.1);
+ color: white;
+ border: 2px solid rgba(255, 255, 255, 0.2);
+ padding: 0.5rem 1rem;
+ border-radius: 10px;
+ font-size: 1.2rem;
+ font-weight: bold;
+ cursor: pointer;
+ outline: none;
+ transition: all 0.3s ease;
+ appearance: none;
+ -webkit-appearance: none;
+ -moz-appearance: none;
+ background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="white" d="M2 0L0 2h4zm0 5L0 3h4z"/></svg>');
+ background-repeat: no-repeat;
+ background-position: right 0.7rem center;
+ background-size: 0.65rem auto;
+ padding-right: 2.5rem;
+ }
+
+ .year-select:hover {
+ background: rgba(255, 255, 255, 0.2);
+ border-color: rgba(255, 255, 255, 0.4);
+ }
+
+ .year-select:focus {
+ border-color: var(--accent-gold);
+ background: rgba(255, 255, 255, 0.2);
+ }
+
+ .year-select option {
+ background: var(--primary-green);
+ color: white;
+ padding: 0.5rem;
+ }
+
+ .calendar-week-day {
+ display: grid;
+ grid-template-columns: repeat(7, 1fr);
+ gap: 0.5rem;
+ margin-bottom: 1rem;
+ }
+
+ .calendar-week-day div {
+ padding: 1rem;
+ text-align: center;
+ font-weight: bold;
+ color: var(--accent-gold);
+ background: var(--warm-cream);
+ border-radius: 10px;
+ }
+
+ .calendar-days {
+ display: grid;
+ grid-template-columns: repeat(7, 1fr);
+ gap: 0.5rem;
+ }
+
+ .calendar-days div {
+ padding: 1rem;
+ text-align: center;
+ cursor: pointer;
+ border-radius: 10px;
+ transition: all 0.3s ease;
+ border: 2px solid transparent;
+ font-weight: 500;
+ }
+
+ .calendar-days div:hover {
+ background: var(--soft-green);
+ color: white;
+ transform: scale(1.05);
+ }
+
+ .calendar-days div.selected {
+ background: var(--gradient);
+ color: white;
+ border-color: var(--accent-gold);
+ }
+
+ .calendar-days div.curr-date {
+ border-color: var(--accent-gold);
+ font-weight: bold;
+ }
+
+ /* Quantity Section */
+ .quantity-section {
+ padding: 6rem 2rem;
+ background: white;
+ display: none;
+ }
+
+ .quantity-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+ gap: 2rem;
+ margin-top: 3rem;
+ }
+
+ .quantity-card {
+ background: var(--warm-cream);
+ border-radius: 20px;
+ padding: 2rem;
+ text-align: center;
+ cursor: pointer;
+ transition: all 0.3s ease;
+ border: 3px solid transparent;
+ position: relative;
+ }
+
+ .quantity-card:hover {
+ transform: translateY(-5px);
+ border-color: var(--accent-gold);
+ box-shadow: var(--shadow);
+ }
+
+ .quantity-card.selected {
+ background: var(--gradient);
+ color: white;
+ border-color: var(--accent-gold);
+ }
+
+ .quantity-icon {
+ font-size: 3rem;
+ margin-bottom: 1rem;
+ color: var(--primary-green);
+ }
+
+ .quantity-card.selected .quantity-icon {
+ color: white;
+ }
+
+ .quantity-card h3 {
+ font-size: 1.5rem;
+ margin-bottom: 0.5rem;
+ }
+
+ .quantity-card .price {
+ font-size: 1.25rem;
+ font-weight: bold;
+ color: var(--accent-gold);
+ }
+
+ .quantity-card.selected .price {
+ color: white;
+ }
+
+ /* Slots Section */
+ .slots-section {
+ padding: 6rem 2rem;
+ background: var(--warm-cream);
+ display: none;
+ }
+
+ .slots-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+ gap: 1rem;
+ margin-top: 3rem;
+ }
+
+ .slot-card {
+ background: white;
+ border-radius: 15px;
+ padding: 1.5rem;
+ text-align: center;
+ cursor: pointer;
+ transition: all 0.3s ease;
+ border: 2px solid transparent;
+ font-weight: 500;
+ }
+
+ .slot-card:hover {
+ background: var(--soft-green);
+ color: white;
+ transform: scale(1.02);
+ }
+
+ .slot-card.selected {
+ background: var(--gradient);
+ color: white;
+ border-color: var(--accent-gold);
+ }
+
+ .slot-card.booked {
+ background: #ccc;
+ color: #666;
+ cursor: not-allowed;
+ opacity: 0.5;
+ }
+
+ .slot-card.booked:hover {
+ transform: none;
+ background: #ccc;
+ color: #666;
+ }
+
+ /* Footer */
+ .footer {
+ background: var(--deep-brown);
+ color: white;
+ padding: 4rem 2rem 2rem;
+ }
+
+ .footer-container {
+ max-width: 1200px;
+ margin: 0 auto;
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+ gap: 3rem;
+ }
+
+ .footer-section h3 {
+ color: var(--accent-gold);
+ margin-bottom: 1rem;
+ }
+
+ .footer-section p, .footer-section a {
+ color: rgba(255, 255, 255, 0.8);
+ text-decoration: none;
+ margin-bottom: 0.5rem;
+ display: block;
+ }
+
+ .footer-section a:hover {
+ color: var(--accent-gold);
+ }
+
+ .social-links {
+ display: flex;
+ gap: 1rem;
+ margin-top: 1rem;
+ }
+
+ .social-links a {
+ width: 40px;
+ height: 40px;
+ background: var(--accent-gold);
+ border-radius: 50%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ color: var(--deep-brown);
+ text-decoration: none;
+ transition: transform 0.3s ease;
+ }
+
+ .social-links a:hover {
+ transform: translateY(-3px);
+ }
+
+ .footer-bottom {
+ text-align: center;
+ padding-top: 2rem;
+ margin-top: 2rem;
+ border-top: 1px solid rgba(255, 255, 255, 0.1);
+ color: rgba(255, 255, 255, 0.6);
+ }
+
+ /* Progress Indicator */
+ .progress-bar {
+ position: fixed;
+ top: 80px;
+ left: 0;
+ right: 0;
+ height: 4px;
+ background: rgba(212, 175, 55, 0.2);
+ z-index: 999;
+ display: none;
+ }
+
+ .progress-fill {
+ height: 100%;
+ background: var(--gradient);
+ transition: width 0.3s ease;
+ width: 0%;
+ }
+
+ /* Floating Action Button */
+ .fab {
+ position: fixed;
+ bottom: 2rem;
+ right: 2rem;
+ width: 60px;
+ height: 60px;
+ background: var(--gradient);
+ border-radius: 50%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ color: white;
+ font-size: 1.5rem;
+ cursor: pointer;
+ box-shadow: var(--shadow);
+ transition: all 0.3s ease;
+ z-index: 1000;
+ }
+
+ .fab:hover {
+ transform: scale(1.1);
+ }
+
+ /* Animations */
+ @keyframes fadeInUp {
+ from {
+ opacity: 0;
+ transform: translateY(30px);
+ }
+ to {
+ opacity: 1;
+ transform: translateY(0);
+ }
+ }
+
+ .fade-in-up {
+ animation: fadeInUp 0.6s ease forwards;
+ }
+
+ /* Responsive Design */
+ @media (max-width: 768px) {
+ .menu-toggle {
+ display: flex;
+ }
+
+ .nav-links {
+ display: none;
+ position: absolute;
+ top: 100%;
+ left: 0;
+ right: 0;
+ background: var(--warm-cream);
+ flex-direction: column;
+ padding: 2rem;
+ box-shadow: var(--shadow);
+ }
+
+ .nav-links.active {
+ display: flex;
+ }
+
+ .hero-container {
+ grid-template-columns: 1fr;
+ text-align: center;
+ gap: 2rem;
+ }
+
+ .hero-content h1 {
+ font-size: 2.5rem;
+ }
+
+ .hero-stats {
+ justify-content: center;
+ }
+
+  img {
+ width: 200px;
+ height: auto;
+ }
+
+ .section-header h2 {
+ font-size: 2rem;
+ }
+
+ .products-container {
+ gap: 1.5rem;
+ }
+
+ .product-card {
+ min-width: 200px;
+ max-width: 250px;
+ }
+
+ .quantity-grid {
+ grid-template-columns: 1fr;
+ gap: 1.5rem;
+ }
+
+ .slots-grid {
+ grid-template-columns: repeat(2, 1fr);
+ gap: 0.75rem;
+ }
+
+ .calendar-container {
+ padding: 2rem 1rem;
+ margin: 0 1rem;
+ }
+
+ .calendar {
+ min-width: 300px;
+ }
+
+ .calendar-header {
+ flex-direction: column;
+ gap: 1rem;
+ padding: 1rem 0.5rem;
+ }
+
+ .calendar-week-day {
+ gap: 0.25rem;
+ }
+
+ .calendar-week-day div {
+ padding: 0.5rem 0.25rem;
+ font-size: 0.8rem;
+ }
+
+ .calendar-days {
+ gap: 0.25rem;
+ }
+
+ .calendar-days div {
+ padding: 0.75rem 0.25rem;
+ font-size: 0.9rem;
+ }
+
+ .footer-container {
+ grid-template-columns: 1fr;
+ text-align: center;
+ }
+
+ .nav-container {
+ padding: 1rem;
+ }
+
+ .year-select {
+ font-size: 1rem;
+ padding: 0.4rem 0.8rem;
+ padding-right: 2rem;
+ }
+}
+
+ @media (max-width: 480px) {
+ .hero {
+ padding: 5rem 1rem 2rem;
+ }
+
+ .hero-content h1 {
+ font-size: 2rem;
+ }
+
+ .hero-content p {
+ font-size: 1rem;
+ }
+
+ .hero-stats {
+ justify-content: center;
+ gap: 1rem;
+ }
+ 
+ .products,
+ .calendar-section,
+ .quantity-section,
+ .slots-section {
+ padding: 4rem 1rem;
+ }
+
+ .products-container {
+ gap: 1rem;
+ }
+
+ .product-card {
+ min-width: 150px;
+ max-width: 180px;
+ padding: 0.5rem;
+ }
+
+ .product-image {
+ width: 80px;
+ height: 80px;
+ }
+
+ .product-card h3 {
+ font-size: 1.2rem;
+ }
+
+ .product-card .price {
+ font-size: 1rem;
+ }
+
+ .product-card .description {
+ font-size: 0.8rem;
+ }
+
+ .select-btn {
+ padding: 0.5rem 1rem;
+ font-size: 0.9rem;
+ }
+
+ .slots-grid {
+ grid-template-columns: 1fr;
+ }
+
+ .slot-card {
+ padding: 1rem;
+ }
+
+ .calendar-container {
+ padding: 1.5rem 0.5rem;
+ margin: 0 0.5rem;
+ border-radius: 15px;
+ }
+
+ .calendar {
+ min-width: 280px;
+ }
+
+ .calendar-header {
+ padding: 0.75rem 0.25rem;
+ }
+
+ .month-picker {
+ font-size: 1.2rem;
+ }
+
+ .calendar-week-day div {
+ padding: 0.5rem 0.1rem;
+ font-size: 0.7rem;
+ }
+
+ .calendar-days div {
+ padding: 0.6rem 0.1rem;
+ font-size: 0.8rem;
+ }
+
+ .year-select {
+ font-size: 0.9rem;
+ padding: 0.3rem 0.6rem;
+ padding-right: 1.8rem;
+ }
+ }
+
+  /* Additional mobile queries for smaller screens */
+ @media (max-width: 480px) {
+ /* Products section - side by side on mobile */
+ #products .products-container {
+ gap: 0.5rem;
+ flex-direction: row;
+ justify-content: space-between;
+ flex-wrap: nowrap;
+ }
+
+ #products .product-card {
+ min-width: 0;
+ max-width: none;
+ flex: 1;
+ width: 48%;
+ }
+ }
+
+ /* Additional mobile queries for very small screens */
+ @media (max-width: 360px) {
+ /* Products section - side by side on mobile */
+ #products .products-container {
+ gap: 0.5rem;
+ flex-direction: row;
+ justify-content: space-between;
+ flex-wrap: nowrap;
+ }
+
+ #products .product-card {
+ min-width: 0;
+ max-width: none;
+ flex: 1;
+ width: 48%;
+ }
+}
+
+ /* Loading Animation */
+ .loading {
+ display: inline-block;
+ width: 20px;
+ height: 20px;
+ border: 3px solid rgba(255,255,255,.3);
+ border-radius: 50%;
+ border-top-color: #fff;
+ animation: spin 1s ease-in-out infinite;
+ }
+
+ @keyframes spin {
+ to { transform: rotate(360deg); }
+ }
+
+ /* Custom Scrollbar */
+ ::-webkit-scrollbar {
+ width: 8px;
+ }
+
+ ::-webkit-scrollbar-track {
+ background: var(--warm-cream);
+ }
+
+ ::-webkit-scrollbar-thumb {
+ background: var(--accent-gold);
+ border-radius: 4px;
+ }
+
+ ::-webkit-scrollbar-thumb:hover {
+ background: var(--primary-green);
+ }
+ </style>
+</head>
+<body>
+ <!-- Navigation -->
+ <nav class="navbar">
+ <div class="nav-container">
+ <a href="#" class="logo">Sufala</a>
+ <ul class="nav-links">
+ <li><a href="#home">Home</a></li>
+ <li><a href="#products">Products</a></li>
+ <li><a href="#about">About</a></li>
+ <li><a href="#contact">Contact</a></li>
+ </ul>
+ <button class="cart-btn">
+ <i class="fas fa-shopping-cart"></i> Cart
+ </button>
+ <div class="menu-toggle">
+ <span></span>
+ <span></span>
+ <span></span>
+ </div>
+ </div>
+ </nav>
+
+ <!-- Progress Bar -->
+ <div class="progress-bar">
+ <div class="progress-fill"></div>
+ </div>
+
+ <!-- Hero Section -->
+ <section class="hero" id="home">
+ <div class="hero-container">
+ <div class="hero-content fade-in-up">
+ <h1>Pure, Fresh <span class="highlight">Cold Pressed</span> Oils</h1>
+ <p>Experience the authentic taste and nutrition of traditionally extracted oils. Watch your oil being freshly pressed right before your eyes!</p>
+ <div class="display-mobile">
+ <div class="hero-image fade-in-up ">
+  <div> <img src="Artboard 1 - Edited.png" alt=""></div>
+ </div>
+ </div>
+
+ <div class="hero-stats">
+ <div class="stat">
+ <span class="stat-number">100%</span>
+ <span class="stat-label">Pure & Natural</span>
+ </div>
+ <div class="stat">
+ <span class="stat-number">24hrs</span>
+ <span class="stat-label">Fresh Pressing</span>
+ </div>
+ <div class="stat">
+ <span class="stat-number">15M+</span>
+ <span class="stat-label">Happy Customers</span>
+ </div>
+ </div>
+
+ <a href="#products" class="cta-button">
+ <i class="fas fa-leaf"></i> Book Your Fresh Oil
+ </a>
+ </div>
+ 
+ <div class="display-desktop">
+ <div class="hero-image ">
+ <div> <img src="Artboard 1 - Edited.png" alt=""></div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- Products Section -->
+ <section class="products" id="products">
+ <div class="section-container">
+ <div class="section-header">
+ <h2>Choose Your Fresh Oil</h2>
+ <p>Select from our premium collection of oils, each cold-pressed to perfection using traditional methods</p>
+ </div>
+
+ <div class="products-container">
  <div class="product-card" onclick="selectProduct('Sesame Oil', 120)">
- <div class="product-img">
- <!-- <i class="fas fa-spa"></i> -->
-   <img src="Untitled-1.png" alt="">
+ <div class="product-image">
+ <img src="sesame.png" alt="Sesame Oil">
  </div>
  <h3>Sesame Oil</h3>
  <div class="price">₹120/Liter</div>
@@ -11,11 +1237,594 @@
  </div>
 
  <div class="product-card" onclick="selectProduct('Groundnut Oil', 95)">
- <div class="product-img">
- <img src="Untitled-1.png" alt="">
+ <div class="product-image">
+ <img src="Untitled-1.png" alt="Groundnut Oil">
  </div>
  <h3>Groundnut Oil</h3>
  <div class="price">₹95/Liter</div>
  <div class="description">Light, healthy cooking oil with a mild flavor and high smoke point</div>
  <button class="select-btn">Select This Oil</button>
  </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- Calendar Section -->
+ <section class="calendar-section" id="calendar-section">
+ <div class="section-container">
+ <div class="section-header">
+ <h2>Select Your Pressing Date</h2>
+ <p>Choose when you'd like your oil to be freshly pressed</p>
+ </div>
+
+ <div class="calendar-container">
+ <div class="calendar">
+ <div class="calendar-header">
+ <div class="month-picker">
+ <span class="month-change" id="prev-month">
+ <i class="fas fa-chevron-left"></i>
+ </span>
+ <span id="month-display">January</span>
+ <span class="month-change" id="next-month">
+ <i class="fas fa-chevron-right"></i>
+ </span>
+ </div>
+ <div class="year-picker">
+ <div class="year-dropdown">
+ <select class="year-select" id="year-select">
+ <!-- Years will be populated by JavaScript -->
+ </select>
+ </div>
+ </div>
+ </div>
+ <div class="calendar-body">
+ <div class="calendar-week-day">
+ <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+ </div>
+ <div class="calendar-days"></div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- Quantity Section -->
+ <section class="quantity-section" id="quantity-section">
+ <div class="section-container">
+ <div class="section-header">
+ <h2>Choose Your Quantity</h2>
+ <p>Select the amount of oil you need</p>
+ </div>
+
+ <div class="quantity-grid">
+ <div class="quantity-card" onclick="selectQuantity('1 Liter', 1)">
+ <div class="quantity-icon">
+ <i class="fas fa-wine-bottle"></i>
+ </div>
+ <h3>1 Liter</h3>
+ <div class="price" id="price-1">₹80</div>
+ <div class="description">Perfect for trying our oil</div>
+ </div>
+
+ <div class="quantity-card" onclick="selectQuantity('3 Liters', 3)">
+ <div class="quantity-icon">
+ <i class="fas fa-flask"></i>
+ </div>
+ <h3>3 Liters</h3>
+ <div class="price" id="price-3">₹240</div>
+ <div class="description">Ideal for families</div>
+ </div>
+
+ <div class="quantity-card" onclick="selectQuantity('5 Liters', 5)">
+ <div class="quantity-icon">
+ <i class="fas fa-fill-drip"></i>
+ </div>
+ <h3>5 Liters</h3>
+ <div class="price" id="price-5">₹400</div>
+ <div class="description">Best value for bulk use</div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- Slots Section -->
+ <section class="slots-section" id="slots-section">
+ <div class="section-container">
+ <div class="section-header">
+ <h2>Choose Your Time Slot</h2>
+ <p>Select a convenient time for your oil pressing</p>
+ </div>
+
+ <div class="slots-grid">
+ <div class="slot-card" onclick="selectSlot('8:00 - 8:30 AM')">8:00 - 8:30 AM</div>
+ <div class="slot-card booked">8:30 - 9:00 AM</div>
+ <div class="slot-card" onclick="selectSlot('9:00 - 9:30 AM')">9:00 - 9:30 AM</div>
+ <div class="slot-card booked">9:30 - 10:00 AM</div>
+ <div class="slot-card" onclick="selectSlot('10:00 - 10:30 AM')">10:00 - 10:30 AM</div>
+ <div class="slot-card" onclick="selectSlot('10:30 - 11:00 AM')">10:30 - 11:00 AM</div>
+ <div class="slot-card" onclick="selectSlot('11:00 - 11:30 AM')">11:00 - 11:30 AM</div>
+ <div class="slot-card" onclick="selectSlot('11:30 - 12:00 PM')">11:30 - 12:00 PM</div>
+ <div class="slot-card" onclick="selectSlot('12:00 - 12:30 PM')">12:00 - 12:30 PM</div>
+ <div class="slot-card" onclick="selectSlot('12:30 - 1:00 PM')">12:30 - 1:00 PM</div>
+ <div class="slot-card" onclick="selectSlot('3:00 - 3:30 PM')">3:00 - 3:30 PM</div>
+ <div class="slot-card" onclick="selectSlot('3:30 - 4:00 PM')">3:30 - 4:00 PM</div>
+ <div class="slot-card" onclick="selectSlot('4:00 - 4:30 PM')">4:00 - 4:30 PM</div>
+ <div class="slot-card" onclick="selectSlot('4:30 - 5:00 PM')">4:30 - 5:00 PM</div>
+ <div class="slot-card" onclick="selectSlot('5:00 - 5:30 PM')">5:00 - 5:30 PM</div>
+ <div class="slot-card" onclick="selectSlot('5:30 - 6:00 PM')">5:30 - 6:00 PM</div>
+ <div class="slot-card" onclick="selectSlot('6:00 - 6:30 PM')">6:00 - 6:30 PM</div>
+ <div class="slot-card" onclick="selectSlot('6:30 - 7:00 PM')">6:30 - 7:00 PM</div>
+ <div class="slot-card" onclick="selectSlot('7:00 - 7:30 PM')">7:00 - 7:30 PM</div>
+ <div class="slot-card" onclick="selectSlot('7:30 - 8:00 PM')">7:30 - 8:00 PM</div>
+ </div>
+
+ <div style="text-align: center; margin-top: 3rem;">
+ <button class="cta-button" id="proceed-payment" onclick="proceedToPayment()" style="display: none;">
+ <i class="fas fa-credit-card"></i> Proceed to Payment
+ </button>
+ </div>
+ </div>
+ </section>
+
+ <!-- About Section -->
+ <section class="products" id="about" style="background: var(--warm-cream);">
+ <div class="section-container">
+ <div class="section-header">
+ <h2>Why Choose Sufala?</h2>
+ <p>Experience the difference of traditionally made, fresh oils</p>
+ </div>
+
+ <div class="products-container">
+ <div class="about-card">
+ <div class="about-icon">
+ <i class="fas fa-eye"></i>
+ </div>
+ <h3>Watch It Being Made</h3>
+ <div class="description">See your oil being freshly pressed right before your eyes using traditional methods</div>
+ </div>
+
+ <div class="about-card">
+ <div class="about-icon">
+ <i class="fas fa-leaf"></i>
+ </div>
+ <h3>100% Natural</h3>
+ <div class="description">No chemicals, no preservatives - just pure, natural oil extracted the traditional way</div>
+ </div>
+
+ <div class="about-card">
+ <div class="about-icon">
+ <i class="fas fa-clock"></i>
+ </div>
+ <h3>Fresh Daily</h3>
+ <div class="description">Oil pressed fresh on your selected date, ensuring maximum nutrition and taste</div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- Footer -->
+ <footer class="footer" id="contact">
+ <div class="footer-container">
+ <div class="footer-section">
+ <h3>Sufala Naturals</h3>
+ <p>Experience the purity of traditionally extracted cold-pressed oils. Fresh, natural, and healthy.</p>
+ <div class="social-links">
+ <a href="#"><i class="fab fa-facebook"></i></a>
+ <a href="https://www.instagram.com/sufala_naturals/?hl=en"><i class="fab fa-instagram"></i></a>
+ <a href="#"><i class="fab fa-twitter"></i></a>
+ <a href="#"><i class="fab fa-whatsapp"></i></a>
+ </div>
+ </div>
+
+ <div class="footer-section">
+ <h3>Quick Links</h3>
+ <a href="#home">Home</a>
+ <a href="#products">Products</a>
+ <a href="#about">About Us</a>
+ <a href="#contact">Contact</a>
+ </div>
+
+ <div class="footer-section">
+ <h3>Contact Info</h3>
+ <p><i class="fas fa-map-marker-alt"></i> Rajahmundry, Andhra Pradesh</p>
+ <p><i class="fas fa-phone"></i> +91 91535 97999</p>
+ <p><i class="fas fa-envelope"></i> info@sufala.com</p>
+ <p><i class="fas fa-clock"></i> Mon-Sat: 8AM-8PM</p>
+ </div>
+
+ <div class="footer-section">
+ <h3>Our Promise</h3>
+ <p>✓ 100% Pure & Natural</p>
+ <p>✓ Traditional Methods</p>
+ <p>✓ Fresh Daily Pressing</p>
+ <p>✓ No Chemicals Added</p>
+ </div>
+ </div>
+
+ <div class="footer-bottom">
+ <p>&copy; 2025 Sufala Naturals. All rights reserved. Made with ❤️ for healthy living.</p>
+ <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d122090.1793242744!2d81.7112979282736!3d17.008059825762643!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a37a37c7820fcef%3A0x1395579b9e441821!2sSUFALA%20NATURALS%20%26%20COLD%20PRESSED%20OILS!5e0!3m2!1sen!2sin!4v1753425128872!5m2!1sen!2sin" width="200" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+ </div>
+ </footer>
+
+ <!-- Floating Action Button -->
+ <div class="fab" onclick="scrollToTop()">
+ <i class="fas fa-arrow-up"></i>
+ </div>
+
+ <script>
+ // Global variables
+ let selectedProduct = '';
+ let selectedDate = '';
+ let selectedQuantity = '';
+ let selectedSlot = '';
+ let basePrice = 0;
+ let quantityMultiplier = 1;
+
+ // Calendar variables
+ const monthNames = [
+ "January", "February", "March", "April", "May", "June",
+ "July", "August", "September", "October", "November", "December"
+ ];
+
+ const calendar = document.querySelector(".calendar");
+ const monthDisplay = document.querySelector("#month-display");
+ const calendarDays = document.querySelector(".calendar-days");
+ const yearSelect = document.querySelector("#year-select");
+
+ const currDate = new Date();
+ const currMonth = { value: currDate.getMonth() };
+ const currYear = { value: currDate.getFullYear() };
+
+ // Initialize
+ document.addEventListener('DOMContentLoaded', function() {
+ initializeCalendar();
+ populateYearDropdown();
+ setupMobileMenu();
+ setupSmoothScrolling();
+ setupProgressBar();
+ animateOnScroll();
+ });
+
+ // Product selection
+ function selectProduct(productName, price) {
+ selectedProduct = productName;
+ basePrice = price;
+ 
+ // Update UI
+ document.querySelectorAll('.product-card').forEach(card => {
+ card.classList.remove('selected');
+ });
+ event.currentTarget.classList.add('selected');
+ 
+ // Show calendar section
+ showSection('calendar-section');
+ updateProgress(25);
+ 
+ // Smooth scroll to calendar
+ document.getElementById('calendar-section').scrollIntoView({ 
+ behavior: 'smooth',
+ block: 'start'
+ });
+ }
+
+ // Year dropdown functions
+ function populateYearDropdown() {
+ const currentYear = new Date().getFullYear();
+ const startYear = currentYear;
+ const endYear = currentYear + 5; // Show current year + next 5 years
+ 
+ yearSelect.innerHTML = '';
+ 
+ for (let year = startYear; year <= endYear; year++) {
+ const option = document.createElement('option');
+ option.value = year;
+ option.textContent = year;
+ if (year === currentYear) {
+ option.selected = true;
+ }
+ yearSelect.appendChild(option);
+ }
+ 
+ // Add event listener for year change
+ yearSelect.addEventListener('change', function() {
+ currYear.value = parseInt(this.value);
+ generateCalendar(currMonth.value, currYear.value);
+ });
+ }
+
+ // Calendar functions
+ function initializeCalendar() {
+ generateCalendar(currMonth.value, currYear.value);
+ 
+ // Month navigation
+ document.querySelector("#prev-month").onclick = () => {
+ currMonth.value--;
+ if (currMonth.value < 0) {
+ currMonth.value = 11;
+ currYear.value--;
+ updateYearSelect();
+ }
+ generateCalendar(currMonth.value, currYear.value);
+ };
+ 
+ document.querySelector("#next-month").onclick = () => {
+ currMonth.value++;
+ if (currMonth.value > 11) {
+ currMonth.value = 0;
+ currYear.value++;
+ updateYearSelect();
+ }
+ generateCalendar(currMonth.value, currYear.value);
+ };
+ }
+
+ function updateYearSelect() {
+ // Update the year dropdown when navigating months
+ const currentSelectValue = parseInt(yearSelect.value);
+ if (currentSelectValue !== currYear.value) {
+ // Check if the new year exists in dropdown
+ const yearOption = yearSelect.querySelector(`option[value="${currYear.value}"]`);
+ if (yearOption) {
+ yearSelect.value = currYear.value;
+ } else {
+ // If year doesn't exist, add it to dropdown
+ const newOption = document.createElement('option');
+ newOption.value = currYear.value;
+ newOption.textContent = currYear.value;
+ 
+ // Insert in correct position
+ const options = Array.from(yearSelect.options);
+ let inserted = false;
+ for (let i = 0; i < options.length; i++) {
+ if (parseInt(options[i].value) > currYear.value) {
+ yearSelect.insertBefore(newOption, options[i]);
+ inserted = true;
+ break;
+ }
+ }
+ if (!inserted) {
+ yearSelect.appendChild(newOption);
+ }
+ yearSelect.value = currYear.value;
+ }
+ }
+ }
+
+ function generateCalendar(month, year) {
+ const daysOfMonth = [31, getFebDays(year), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+ calendarDays.innerHTML = "";
+ const firstDay = new Date(year, month, 1);
+ 
+ monthDisplay.textContent = monthNames[month];
+ yearSelect.value = year;
+ 
+ for (let i = 0; i <= daysOfMonth[month] + firstDay.getDay() - 1; i++) {
+ const day = document.createElement("div");
+ 
+ if (i >= firstDay.getDay()) {
+ const dateNumber = i - firstDay.getDay() + 1;
+ day.innerHTML = dateNumber;
+ day.classList.add("calendar-day-hover");
+ 
+ // Disable past dates
+ const currentDate = new Date(year, month, dateNumber);
+ const today = new Date();
+ today.setHours(0, 0, 0, 0);
+ 
+ if (currentDate < today) {
+ day.style.opacity = '0.3';
+ day.style.cursor = 'not-allowed';
+ } else {
+ if (dateNumber === currDate.getDate() && 
+ month === currDate.getMonth() && 
+ year === currDate.getFullYear()) {
+ day.classList.add("curr-date");
+ }
+ 
+ day.onclick = () => {
+ selectDate(`${dateNumber}-${monthNames[month]}-${year}`, day);
+ };
+ }
+ }
+ 
+ calendarDays.appendChild(day);
+ }
+ }
+
+ function selectDate(date, dayElement) {
+ selectedDate = date;
+ 
+ // Update UI
+ document.querySelectorAll('.calendar-days div').forEach(d => d.classList.remove('selected'));
+ dayElement.classList.add('selected');
+ 
+ // Show quantity section
+ showSection('quantity-section');
+ updateProgress(50);
+ updateQuantityPrices();
+ 
+ // Smooth scroll
+ setTimeout(() => {
+ document.getElementById('quantity-section').scrollIntoView({ 
+ behavior: 'smooth',
+ block: 'start'
+ });
+ }, 300);
+ }
+
+ function selectQuantity(quantity, multiplier) {
+ selectedQuantity = quantity;
+ quantityMultiplier = multiplier;
+ 
+ // Update UI
+ document.querySelectorAll('.quantity-card').forEach(card => {
+ card.classList.remove('selected');
+ });
+ event.currentTarget.classList.add('selected');
+ 
+ // Show slots section
+ showSection('slots-section');
+ updateProgress(75);
+ 
+ // Smooth scroll
+ setTimeout(() => {
+ document.getElementById('slots-section').scrollIntoView({ 
+ behavior: 'smooth',
+ block: 'start'
+ });
+ }, 300);
+ }
+
+ function selectSlot(slot) {
+ if (event.currentTarget.classList.contains('booked')) {
+ return;
+ }
+ 
+ selectedSlot = slot;
+ 
+ // Update UI
+ document.querySelectorAll('.slot-card').forEach(card => {
+ card.classList.remove('selected');
+ });
+ event.currentTarget.classList.add('selected');
+ 
+ // Show payment button
+ document.getElementById('proceed-payment').style.display = 'inline-block';
+ updateProgress(100);
+ }
+
+ function proceedToPayment() {
+ const totalPrice = basePrice * quantityMultiplier;
+ 
+ // Create booking summary
+ const bookingDetails = {
+ product: selectedProduct,
+ date: selectedDate,
+ quantity: selectedQuantity,
+ slot: selectedSlot,
+ totalPrice: totalPrice
+ };
+ 
+ // Show confirmation
+ const confirmation = `
+ 🛒 Booking Summary:
+ Product: ${selectedProduct}
+ Date: ${selectedDate}
+ Quantity: ${selectedQuantity}
+ Time Slot: ${selectedSlot}
+ Total Amount: ₹${totalPrice}
+ 
+ Confirm your booking?
+ `;
+ 
+ if (confirm(confirmation)) {
+ // Here you would integrate with your payment gateway
+ alert('🎉 Booking confirmed! Payment integration will be added here. You will receive a confirmation message shortly.');
+ 
+ // Reset form
+ resetBooking();
+ }
+ }
+
+ // Utility functions
+ function showSection(sectionId) {
+ document.getElementById(sectionId).style.display = 'block';
+ document.querySelector('.progress-bar').style.display = 'block';
+ }
+
+ function updateProgress(percentage) {
+ document.querySelector('.progress-fill').style.width = percentage + '%';
+ }
+
+ function updateQuantityPrices() {
+ document.getElementById('price-1').textContent = `₹${basePrice}`;
+ document.getElementById('price-3').textContent = `₹${basePrice * 3}`;
+ document.getElementById('price-5').textContent = `₹${basePrice * 5}`;
+ }
+
+ function resetBooking() {
+ selectedProduct = '';
+ selectedDate = '';
+ selectedQuantity = '';
+ selectedSlot = '';
+ basePrice = 0;
+ quantityMultiplier = 1;
+ 
+ // Hide sections
+ document.getElementById('calendar-section').style.display = 'none';
+ document.getElementById('quantity-section').style.display = 'none';
+ document.getElementById('slots-section').style.display = 'none';
+ document.querySelector('.progress-bar').style.display = 'none';
+ document.getElementById('proceed-payment').style.display = 'none';
+ 
+ // Clear selections
+ document.querySelectorAll('.selected').forEach(el => el.classList.remove('selected'));
+ 
+ // Scroll to top
+ scrollToTop();
+ }
+
+ function getFebDays(year) {
+ return ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) ? 29 : 28;
+ }
+
+ function scrollToTop() {
+ window.scrollTo({ top: 0, behavior: 'smooth' });
+ }
+
+ function setupMobileMenu() {
+ const menuToggle = document.querySelector('.menu-toggle');
+ const navLinks = document.querySelector('.nav-links');
+ 
+ menuToggle.addEventListener('click', () => {
+ navLinks.classList.toggle('active');
+ });
+ }
+
+ function setupSmoothScrolling() {
+ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+ anchor.addEventListener('click', function (e) {
+ e.preventDefault();
+ const target = document.querySelector(this.getAttribute('href'));
+ if (target) {
+ target.scrollIntoView({
+ behavior: 'smooth',
+ block: 'start'
+ });
+ }
+ });
+ });
+ }
+
+ function setupProgressBar() {
+ window.addEventListener('scroll', () => {
+ const navbar = document.querySelector('.navbar');
+ if (window.scrollY > 100) {
+ navbar.style.background = 'rgba(245, 242, 232, 0.98)';
+ } else {
+ navbar.style.background = 'rgba(245, 242, 232, 0.95)';
+ }
+ });
+ }
+
+ function animateOnScroll() {
+ const observer = new IntersectionObserver((entries) => {
+ entries.forEach(entry => {
+ if (entry.isIntersecting) {
+ entry.target.style.opacity = '1';
+ entry.target.style.transform = 'translateY(0)';
+ }
+ });
+ });
+
+ document.querySelectorAll('.product-card, .quantity-card, .slot-card').forEach(card => {
+ card.style.opacity = '0';
+ card.style.transform = 'translateY(30px)';
+ card.style.transition = 'all 0.6s ease';
+ observer.observe(card);
+ });
+ }
+ </script>
+</body>
+</html>
